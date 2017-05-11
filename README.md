@@ -67,7 +67,7 @@ class Example extends Component {
                 <CalendarStrip
                     calendarAnimation={{type: 'sequence', duration: 30}}
                     daySelectionAnimation={{type: 'border', duration: 200, borderWidth: 1, borderHighlightColor: 'white'}}
-                    style={{height: 100, paddingTop: 20, paddingBottom: 10}}
+                    style={{paddingTop: 20, paddingBottom: 10}}
                     calendarHeaderStyle={{color: 'white'}}
                     calendarColor={'#7743CE'}
                     dateNumberStyle={{color: 'white'}}
@@ -99,8 +99,6 @@ This is the list of all the props you can pass to the component so that you can 
   * onDateSelected: React.PropTypes.func - Function to be used as a callback when a date is selected. It returns `moment Date`
   * onWeekChanged: React.PropTypes.func - Function to be used as a callback when a week is changed. It returns `moment Date`
   * useIsoWeekday: React.PropTypes.bool - start week on ISO day of week (default true).  If false, starts week on _startingDate_ parameter.  
-  * minDate: React.PropTypes.any - minimum date that the calendar may navigate to. A week is allowed if minDate falls within the current week.
-  * maxDate: React.PropTypes.any - maximum date that the calendar may navigate to. A week is allowed if maxDate falls within the current week. 
   * datesWhitelist: React.PropTypes.array - Dates that are enabled (accepts both `Date` and `moment Date`). Ranges may be specified with an object entry in the array:
   ```
   // Date range format
@@ -131,7 +129,7 @@ This is the list of all the props you can pass to the component so that you can 
   * leftSelector: React.PropTypes.any - Component for the left selector control. May be an instance of any React component. This overrides the icon* props above. Passing in an empty array `[]` hides this control.
   * rightSelector: React.PropTypes.any - same as above but for the right selector control.
 
-###### Header style and formatting
+###### Header style and formating
   * calendarHeaderStyle: React.PropTypes.any - Style for the header text of the calendar.
   * calendarHeaderFormat: React.PropTypes.string - Format for the header text of the calendar. For options, refere to [moments documentation](http://momentjs.com/docs/#/displaying/format/)
 
@@ -146,39 +144,6 @@ This is the list of all the props you can pass to the component so that you can 
 
   * disabledDateNameStyle: React.PropTypes.any - Style for disabled name of the day in dates strip (controlled by datesWhitelist & datesBlacklist).
   * disabledDateNumberStyle: React.PropTypes.any - Style for disabled number of the day in dates strip (controlled by datesWhitelist & datesBlacklist).
-  * disabledDateOpacity: React.PropTypes.number - (default 0.3) Opacity of disabled dates strip.
-  * customDatesStyles: React.PropTypes.array - Custom per-date styling, overriding the styles above. Object format:
-    * startDate: anything parseable by Moment.
-    * endDate: (optional) specify a range. If no endDate is supplied, startDate is treated as a single date.
-    * dateNameStyle: (optional, see above)
-    * dateNumberStyle: (optional, see above)
-    * dateContainerStyle: (optional highlight style)
-
-  ![Custom date styling example](https://cloud.githubusercontent.com/assets/6295083/25105759/a3335fc8-238b-11e7-9a92-3174498a0d89.png)
-
-  Example:
-  ```
-  let customDatesStyles = [];
-  let startDate = moment();
-  for (let i=0; i<6; i++) {
-    customDatesStyles.push({
-        startDate: startDate.clone().add(i, 'days'), // Single date since no endDate provided
-        dateNameStyle: {styles.someDateNameStyle},
-        dateNumberStyle: {styles.someDateNumberStyle},
-        // Random color...
-        dateContainerStyle: {{backgroundColor: '#'+('#00000'+(Math.random()*(1<<24)|0).toString(16)).slice(-6)}},
-    });
-  }
-
-  render() {
-    return (
-      <CalendarStrip
-        customDatesStyles={customDatesStyles}
-        ...
-      />
-    );
-  }
-  ```
 
 ###### Animations
   The week strip and day selection have configurable opacity animations.  If they are not specified in the props, by default the animations are disabled.
