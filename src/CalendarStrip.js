@@ -11,6 +11,7 @@ import {
     Easing,
     TouchableOpacity
 } from 'react-native';
+import PropTypes from 'prop-types';
 import CalendarDay from './CalendarDay';
 import moment from 'moment';
 import styles from './Calendar.style.js';
@@ -27,48 +28,48 @@ for (let i = 0; i < 7; i++) {
 export default class CalendarStrip extends Component {
 
     static propTypes = {
-        style: React.PropTypes.any,
-        calendarColor: React.PropTypes.string,
+        style: PropTypes.any,
+        calendarColor: PropTypes.string,
 
-        startingDate: React.PropTypes.any,
-        selectedDate: React.PropTypes.any,
-        onDateSelected: React.PropTypes.func,
-        onWeekChanged: React.PropTypes.func,
-        useIsoWeekday: React.PropTypes.bool,
+        startingDate: PropTypes.any,
+        selectedDate: PropTypes.any,
+        onDateSelected: PropTypes.func,
+        onWeekChanged: PropTypes.func,
+        useIsoWeekday: PropTypes.bool,
 
-        showMonth: React.PropTypes.bool,
-        showDayName: React.PropTypes.bool,
-        showDayNumber: React.PropTypes.bool,
-        showDate: React.PropTypes.bool,
+        showMonth: PropTypes.bool,
+        showDayName: PropTypes.bool,
+        showDayNumber: PropTypes.bool,
+        showDate: PropTypes.bool,
 
-        leftSelector: React.PropTypes.any,
-        rightSelector: React.PropTypes.any,
-        iconLeft: React.PropTypes.any,
-        iconRight: React.PropTypes.any,
-        iconStyle: React.PropTypes.any,
-        iconLeftStyle: React.PropTypes.any,
-        iconRightStyle: React.PropTypes.any,
-        iconContainer: React.PropTypes.any,
+        leftSelector: PropTypes.any,
+        rightSelector: PropTypes.any,
+        iconLeft: PropTypes.any,
+        iconRight: PropTypes.any,
+        iconStyle: PropTypes.any,
+        iconLeftStyle: PropTypes.any,
+        iconRightStyle: PropTypes.any,
+        iconContainer: PropTypes.any,
 
-        calendarHeaderStyle: React.PropTypes.any,
-        calendarHeaderFormat: React.PropTypes.string,
+        calendarHeaderStyle: PropTypes.any,
+        calendarHeaderFormat: PropTypes.string,
 
-        calendarAnimation: React.PropTypes.object,
-        daySelectionAnimation: React.PropTypes.object,
+        calendarAnimation: PropTypes.object,
+        daySelectionAnimation: PropTypes.object,
 
-        dateNameStyle: React.PropTypes.any,
-        dateNumberStyle: React.PropTypes.any,
-        weekendDateNameStyle: React.PropTypes.any,
-        weekendDateNumberStyle: React.PropTypes.any,
-        highlightDateNameStyle: React.PropTypes.any,
-        highlightDateNumberStyle: React.PropTypes.any,
-        disabledDateNameStyle: React.PropTypes.any,
-        disabledDateNumberStyle: React.PropTypes.any,
-        styleWeekend: React.PropTypes.bool,
-        datesWhitelist: React.PropTypes.array,
-        datesBlacklist: React.PropTypes.array,
+        dateNameStyle: PropTypes.any,
+        dateNumberStyle: PropTypes.any,
+        weekendDateNameStyle: PropTypes.any,
+        weekendDateNumberStyle: PropTypes.any,
+        highlightDateNameStyle: PropTypes.any,
+        highlightDateNumberStyle: PropTypes.any,
+        disabledDateNameStyle: PropTypes.any,
+        disabledDateNumberStyle: PropTypes.any,
+        styleWeekend: PropTypes.bool,
+        datesWhitelist: PropTypes.array,
+        datesBlacklist: PropTypes.array,
 
-        locale: React.PropTypes.object
+        locale: PropTypes.object
     };
 
     static defaultProps = {
